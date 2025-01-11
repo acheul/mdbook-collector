@@ -36,6 +36,11 @@
   overflow-y: auto;
   overflow-x: hidden;
   transition: top .2s, left .2s;
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+}
+.tocw-wrap::-webkit-scrollbar {
+  display: none;
 }
 
 .tocw-box {
