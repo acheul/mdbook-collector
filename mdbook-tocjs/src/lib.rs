@@ -6,9 +6,6 @@ use std::path::{Path, PathBuf};
 use std::fs::{self, File};
 use std::io::prelude::*;
 
-mod blobs;
-use blobs::*;
-
 
 pub struct Config {
   save_dir: PathBuf,
@@ -115,11 +112,13 @@ impl Preprocessor for TocJsMaker {
         
     let cfg = Config::new(self.name(), ctx)?;
 
+    let x = include_str!("includes/toc.css");
     let mut f = File::create(cfg.save_dir.join("toc.css")).unwrap();
-    f.write_all(TOC_CSS.as_bytes())?;
+    f.write_all(x.as_bytes())?;
 
+    let x = include_str!("includes/toc.js");
     let mut f = File::create(cfg.save_dir.join("toc.js")).unwrap();
-    f.write_all(cfg.format_js(TOC_JS).as_bytes())?;
+    f.write_all(cfg.format_js(x).as_bytes())?;
 
     // make theme/head.hbs
     let head_hbs_literals = [

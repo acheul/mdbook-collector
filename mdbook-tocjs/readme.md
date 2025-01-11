@@ -100,3 +100,5 @@ You can also use `additional-js` and `additional-css` for more customization. In
   * debugging in case of single post where prev-navigator not exists
 * `0.1.4`
   * make wing's scrollbar width none;
+* Version `0.2`
+  * PREFER using mdbook [output.html]'s "additional-js" and "additional-css" options RATHER than [preprocessor];
