@@ -98,3 +98,5 @@ You can also use `additional-js` and `additional-css` for more customization. In
   * added `base_url` to configuration.
 * `0.1.3`
   * debugging in case of single post where prev-navigator not exists
+* `0.1.4`
+  * make wing's scrollbar width none;
