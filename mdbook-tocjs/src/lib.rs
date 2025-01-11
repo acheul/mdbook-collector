@@ -78,18 +78,10 @@ impl Config {
   }
 
   fn format_js(&self, literal: &str) -> String {
-    format!(r#"
-      {}
-      window.addEventListener("load", (e)=>{{
-        const toc_maker = new TocMaker();
-        toc_maker.build_block("{}");
-        toc_maker.build_wing("{}");
-      }});
-      "#,
-      literal,
-      self.block_marker_id,
-      self.wing_marker_id
-    )
+
+    let literal = literal.replace(r#"toc_maker.build_block("tock")"#, &format!(r#"toc_maker.build_block("{}")"#, self.block_marker_id));
+    let literal = literal.replace(r#"toc_maker.build_wing("tocw")"#, &format!(r#"toc_maker.build_wing("{}")"#, self.wing_marker_id));
+    literal
   }
 }
 

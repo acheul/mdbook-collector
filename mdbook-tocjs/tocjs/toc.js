@@ -387,3 +387,10 @@ class TocMaker {
     }
   }
 }
+
+// activate
+window.addEventListener("load", (e)=>{
+  const toc_maker = new TocMaker();
+  toc_maker.build_block("tock");
+  toc_maker.build_wing("tocw");
+});
